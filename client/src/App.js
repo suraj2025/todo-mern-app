@@ -14,22 +14,22 @@ function App() {
   }, [todos]);
 
   const fetchTodos = async () => {
-    const response = await axios.get('http://localhost:5000/api/todos');
+    const response = await axios.get('https://todo-react-app-3icn.onrender.com/api/todos');
     setTodos(response.data);
   };
 
   const addTodo = async (todo) => {
-    const response = await axios.post('http://localhost:5000/api/todos', { title: todo.title });
+    const response = await axios.post('https://todo-react-app-3icn.onrender.com/api/todos', { title: todo.title });
     setTodos([...todos, response.data]);
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`);
+    await axios.delete(`https://todo-react-app-3icn.onrender.com/api/todos/${id}`);
     setTodos(todos.filter((todo) => todo._id !== id)); // Ensure it matches the backend's ID
   };
 
   const updateTodo = async (todo) => {
-    const response = await axios.put(`http://localhost:5000/api/todos/${todo._id}`, todo);
+    const response = await axios.put(`https://todo-react-app-3icn.onrender.com/api/todos/${todo._id}`, todo);
     setTodos(todos.map((t) => (t._id === response.data._id ? response.data : t))); // Update the state with the updated todo
     setEditTodo(null); // Clear editTodo state after updating
   };
