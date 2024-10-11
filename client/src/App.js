@@ -11,6 +11,9 @@ function App() {
 
   useEffect(() => {
     fetchTodos();
+  }, []);
+  useEffect(() => {
+    fetchTodos();
   }, [todos]);
 
   const fetchTodos = async () => {
